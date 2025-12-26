@@ -27,4 +27,8 @@ public class Book {
     public void returnBook(){
         issued = false;
     }
+
+    public String toString(){
+        return "Book ID : " + id +"\n"+ "Title : " + title +"\n"+ "Issued : " + issued+"\n";
+    }
 }

@@ -16,6 +16,10 @@ public class Book {
         return id;
     }
 
+    public String getTitle(){
+        return title;
+    }
+
     public boolean isIssued(){
         return issued;
     }
@@ -28,7 +32,11 @@ public class Book {
         issued = false;
     }
 
-    public String toString(){
+    public void setIssued(boolean issued){
+        this.issued = issued;
+    }
+
+    public String display(){
         return "Book ID : " + id +"\n"+ "Title : " + title +"\n"+ "Issued : " + issued+"\n";
     }
 }

@@ -1,42 +1,55 @@
 package Pack1;
 
+import exceptions.BookAlreadyIssuedException;
+import exceptions.BookNotIssuedException;
+
 public class Book {
 
     private int id;
     private String title;
     private boolean issued;
 
-    public Book(int id, String title){
+    public Book(int id, String title) {
         this.id = id;
         this.title = title;
         this.issued = false;
     }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return title;
     }
 
-    public boolean isIssued(){
+    public boolean isIssued() {
         return issued;
     }
 
-    public void issueBook(){
+    // Issue book with exception
+    public void issueBook() throws BookAlreadyIssuedException {
+        if (issued) {
+            throw new BookAlreadyIssuedException("Book ID " + id + " is already issued.");
+        }
         issued = true;
     }
 
-    public void returnBook(){
+    // Return book with exception
+    public void returnBook() throws BookNotIssuedException {
+        if (!issued) {
+            throw new BookNotIssuedException("Book ID " + id + " is not issued, cannot return.");
+        }
         issued = false;
     }
 
-    public void setIssued(boolean issued){
+    // Used when loading from file
+    public void setIssued(boolean issued) {
         this.issued = issued;
     }
 
-    public String display(){
-        return "Book ID : " + id +"\n"+ "Title : " + title +"\n"+ "Issued : " + issued+"\n";
+    public String display() {
+        String status = issued ? "Issued" : "Available";
+        return "Book ID: " + id + " | Title: " + title + " | Status: " + status;
     }
 }

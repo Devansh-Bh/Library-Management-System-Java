@@ -10,7 +10,7 @@ public class FileService {
 
     private static final String FILE_NAME = "books.txt";
 
-    // Save books (Day 5)
+    // Save books
     public static void saveBooks(ArrayList<Book> books) {
 
         try {
@@ -31,7 +31,7 @@ public class FileService {
         }
     }
 
-    // Load books (Day 6) - FileReader only, char-by-char
+    // Load books  - FileReader only, char-by-char
     public static ArrayList<Book> loadBooks() {
 
         ArrayList<Book> books = new ArrayList<>();
